@@ -1,0 +1,243 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &279073701094626991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8128926048211812276}
+  - component: {fileID: 5448912563752757416}
+  m_Layer: 0
+  m_Name: TorretaFuego
+  m_TagString: Torreta
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8128926048211812276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279073701094626991}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13, y: 0.5, z: 42.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4669742224088592595}
+  - {fileID: 7764969088615504044}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5448912563752757416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279073701094626991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde0282545781514ea308522476ad7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rango: 6
+  VelocidadDisparo: 30
+  TagEnemigo: Enemigo
+  PartesRotatorias: {fileID: 7764969088615504044}
+  velocidadRotacion: 10
+  PrefabProyectil: {fileID: 8825789382029332434, guid: d7ee0efa772c39f46a7335fc00baf92e, type: 3}
+  SalidaProyectil: {fileID: 2274031361586714045}
+--- !u!1 &2017007943338829710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7764969088615504044}
+  m_Layer: 0
+  m_Name: ObjetosRotatorios
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7764969088615504044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017007943338829710}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3325971540232736225}
+  - {fileID: 2274031361586714045}
+  m_Father: {fileID: 8128926048211812276}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8219912196870494161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2274031361586714045}
+  m_Layer: 0
+  m_Name: SalidaProyectil
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2274031361586714045
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8219912196870494161}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.44, z: 0.96}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7764969088615504044}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &3000101052190878218
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7764969088615504044}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 0fe19c8962878504c95bd937c2ca6f62, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0034942627
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0fe19c8962878504c95bd937c2ca6f62, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.083636
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0fe19c8962878504c95bd937c2ca6f62, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01745224
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0fe19c8962878504c95bd937c2ca6f62, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0fe19c8962878504c95bd937c2ca6f62, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0fe19c8962878504c95bd937c2ca6f62, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0fe19c8962878504c95bd937c2ca6f62, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0fe19c8962878504c95bd937c2ca6f62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0fe19c8962878504c95bd937c2ca6f62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0fe19c8962878504c95bd937c2ca6f62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0fe19c8962878504c95bd937c2ca6f62, type: 3}
+      propertyPath: m_Name
+      value: Torre_Fuergo2 (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0fe19c8962878504c95bd937c2ca6f62, type: 3}
+--- !u!4 &3325971540232736225 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0fe19c8962878504c95bd937c2ca6f62, type: 3}
+  m_PrefabInstance: {fileID: 3000101052190878218}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5135502921815562040
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8128926048211812276}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: ef0a1713ffd0d4c4dab4ba1a883c4a3e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0034942627
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ef0a1713ffd0d4c4dab4ba1a883c4a3e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00000011920929
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ef0a1713ffd0d4c4dab4ba1a883c4a3e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ef0a1713ffd0d4c4dab4ba1a883c4a3e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ef0a1713ffd0d4c4dab4ba1a883c4a3e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ef0a1713ffd0d4c4dab4ba1a883c4a3e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ef0a1713ffd0d4c4dab4ba1a883c4a3e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ef0a1713ffd0d4c4dab4ba1a883c4a3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ef0a1713ffd0d4c4dab4ba1a883c4a3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ef0a1713ffd0d4c4dab4ba1a883c4a3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ef0a1713ffd0d4c4dab4ba1a883c4a3e, type: 3}
+      propertyPath: m_Name
+      value: Torre_Fuego1 (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ef0a1713ffd0d4c4dab4ba1a883c4a3e, type: 3}
+--- !u!4 &4669742224088592595 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ef0a1713ffd0d4c4dab4ba1a883c4a3e, type: 3}
+  m_PrefabInstance: {fileID: 5135502921815562040}
+  m_PrefabAsset: {fileID: 0}
