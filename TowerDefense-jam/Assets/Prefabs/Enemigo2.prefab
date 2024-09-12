@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6548850607810533499}
   - component: {fileID: 2864157103616141622}
   - component: {fileID: 4529937494889784198}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BarraVida
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 1174599990069203489}
   - component: {fileID: 8173882437558192995}
   - component: {fileID: 7954231495308041489}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 1658653990655269152}
   - component: {fileID: 121137156820796009}
   - component: {fileID: 223440386099567362}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: VidaFondo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6779916508809794981}
-  - component: {fileID: 3486697509379167147}
+  - component: {fileID: -4879042086774896846}
+  - component: {fileID: 6636711317303927298}
   m_Layer: 0
   m_Name: Enemigo2
   m_TagString: Enemigo
@@ -289,7 +290,7 @@ Transform:
   - {fileID: 7117187526154778325}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3486697509379167147
+--- !u!114 &-4879042086774896846
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -304,9 +305,34 @@ MonoBehaviour:
   velocidad: 10
   vidaInicial: 100
   vida: 100
-  BarraVida: {fileID: 4529937494889784198}
-  "da\xF1o": 5
+  Detenido: 0
+  BarraVida: {fileID: 4529937494889784198, guid: 8b1eb05f0cfcb274fab98a1796e35ad4, type: 3}
+  "da\xF1o": 3
   DineroGanado: 50
+  destinoFinal: {x: 32.5, y: 0, z: 6.91}
+  monedaPrefab: {fileID: 3816286260042675995, guid: 3c89248fef2d7ae449b967eae426dcde, type: 3}
+--- !u!195 &6636711317303927298
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8354117436205764180}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &629494780205805281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -370,6 +396,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8f066abb73cc19d49b6759ce12de02d9, type: 3}
       propertyPath: m_Name
       value: enemigo1patita1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8f066abb73cc19d49b6759ce12de02d9, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -445,6 +475,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemigo1cabeza
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6179eb0aa6b55f7419b6365ae948d62d, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -518,6 +552,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 464c1f1b85dbd1f4d82653fc663c6804, type: 3}
       propertyPath: m_Name
       value: enemigo1patita2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 464c1f1b85dbd1f4d82653fc663c6804, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

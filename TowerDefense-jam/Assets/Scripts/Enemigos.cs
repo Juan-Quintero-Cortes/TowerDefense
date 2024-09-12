@@ -1,41 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class Enemigos : MonoBehaviour
 {
     public float velocidad = 10f;
-
     public float vidaInicial = 100f;
     public float vida;
-
-    public bool Detenido= false;
-
+    public bool Detenido = false;
     public Image BarraVida;
-
-    private bool EstaMuerto = false;
-
-    public int da�o;
-
+    public int daño;
     public int DineroGanado = 50;
-    private Transform objetivo;
-    private int Indice_Punto_Ruta = 0;
-    // Start is called before the first frame update
+    public Vector3 destinoFinal;
+    public GameObject monedaPrefab; // Prefab de la moneda que aparecerá
+
+    
+    private bool EstaMuerto = false;
+    private NavMeshAgent agente;
+    private float radioDestino = 0.5f;
+
     void Start()
     {
-        objetivo = Puntos_Ruta.Puntos[0];
+        agente = GetComponent<NavMeshAgent>();
         vida = vidaInicial;
+        agente.stoppingDistance = radioDestino;
+        agente.SetDestination(destinoFinal);
     }
 
-    public void Da�o(int cantidad)
+    public void Daño(int cantidad)
     {
         vida -= cantidad;
-
-        BarraVida.fillAmount = vida/vidaInicial;
-        Debug.Log(vida / vidaInicial);
-
-        if(vida<=0 && !EstaMuerto)
+        BarraVida.fillAmount = vida / vidaInicial;
+        if (vida <= 0 && !EstaMuerto)
         {
             Muerte();
         }
@@ -43,9 +41,9 @@ public class Enemigos : MonoBehaviour
 
     public void Lento()
     {
-        if(Detenido!=true)
+        if (!Detenido)
         {
-            velocidad -= 5f;
+            agente.speed -= 5f;
             Detenido = true;
         }
     }
@@ -53,36 +51,68 @@ public class Enemigos : MonoBehaviour
     void Muerte()
     {
         EstaMuerto = true;
-        StatsJugagor.Dinero += DineroGanado;
+        SpawnMoneda();
         Destroy(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    void SpawnMoneda()
     {
-        Vector3 Dir = objetivo.position - transform.position;
-        transform.Translate(Dir.normalized * velocidad * Time.deltaTime, Space.World);
-
-        if(Vector3.Distance(transform.position, objetivo.position) <= 0.2f)
+        Vector3 spawnPosition = GetCenterPositionOnSueloLayer();
+        if (spawnPosition != Vector3.zero)
         {
-            SiguientPunto_Ruta();
+            GameObject monedaObj = Instantiate(monedaPrefab, spawnPosition, Quaternion.identity);
+            Moneda moneda = monedaObj.GetComponent<Moneda>();
+            if (moneda != null)
+            {
+                moneda.valor = DineroGanado;
+            }
+            else
+            {
+                Debug.LogError("El prefab de moneda no tiene el componente Moneda adjunto.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("No se pudo encontrar una posición válida para spawner la moneda.");
         }
     }
 
-    void SiguientPunto_Ruta()
+    Vector3 GetCenterPositionOnSueloLayer()
     {
-        if (Indice_Punto_Ruta >=Puntos_Ruta.Puntos.Length - 1) 
+        // Obtener todos los colliders en la capa "suelo"
+        Collider[] sueloColliders = Physics.OverlapSphere(Vector3.zero, Mathf.Infinity, LayerMask.GetMask("suelo"));
+        
+        if (sueloColliders.Length > 0)
         {
-            FinDelCamino();
-            return;
+            // Elegir un collider aleatorio
+            Collider randomCollider = sueloColliders[Random.Range(0, sueloColliders.Length)];
+            
+            // Obtener el centro del collider
+            Vector3 centerPoint = randomCollider.bounds.center;
+            
+            // Ajustar la altura
+            centerPoint.y = randomCollider.bounds.max.y + 3f;
+            
+            return centerPoint;
         }
-        Indice_Punto_Ruta++;
-        objetivo = Puntos_Ruta.Puntos[Indice_Punto_Ruta];
+        
+        return Vector3.zero; // Retornar Vector3.zero si no se encuentra ningún objeto en la capa "suelo"
+    }
+
+    void Update()
+    {
+        if (!agente.pathPending && agente.remainingDistance <= agente.stoppingDistance)
+        {
+            if (!agente.hasPath || agente.velocity.sqrMagnitude == 0f)
+            {
+                FinDelCamino();
+            }
+        }
     }
 
     void FinDelCamino()
     {
-        StatsJugagor.Vidas = StatsJugagor.Vidas - da�o;
+        StatsJugagor.Vidas -= daño;
         Destroy(gameObject);
     }
 }
