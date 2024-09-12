@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6548850607810533499}
   - component: {fileID: 2864157103616141622}
   - component: {fileID: 4529937494889784198}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BarraVida
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0.16
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 1174599990069203489}
   - component: {fileID: 8173882437558192995}
   - component: {fileID: 7954231495308041489}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 1658653990655269152}
   - component: {fileID: 121137156820796009}
   - component: {fileID: 223440386099567362}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: VidaFondo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,6 +263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6779916508809794981}
   - component: {fileID: 3486697509379167147}
+  - component: {fileID: -6747181322511048554}
   m_Layer: 0
   m_Name: Enemigo1
   m_TagString: Enemigo
@@ -303,9 +304,34 @@ MonoBehaviour:
   velocidad: 10
   vidaInicial: 100
   vida: 100
+  Detenido: 0
   BarraVida: {fileID: 4529937494889784198}
   "da\xF1o": 3
   DineroGanado: 50
+  destinoFinal: {x: 32.5, y: 0, z: 6.91}
+  monedaPrefab: {fileID: 3816286260042675995, guid: 3c89248fef2d7ae449b967eae426dcde, type: 3}
+--- !u!195 &-6747181322511048554
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8354117436205764180}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &756723607630601748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -369,6 +395,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: aa060b1de3a7bc64d988ed31121854b7, type: 3}
       propertyPath: m_Name
       value: enemigo2patitas
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aa060b1de3a7bc64d988ed31121854b7, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -443,6 +473,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: eb15dadcb85cb7e48a59ebae437cc8c6, type: 3}
       propertyPath: m_Name
       value: enemigo2cabeza
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: eb15dadcb85cb7e48a59ebae437cc8c6, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
