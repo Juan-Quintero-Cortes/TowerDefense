@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemigo
   - Torreta
+  - Defensa
+  - CeldaDefensa
   layers:
   - Default
   - TransparentFX

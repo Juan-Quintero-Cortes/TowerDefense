@@ -45,6 +45,7 @@ public class torreta : MonoBehaviour
 
         if (EnemegoMasCercano != null && DistaciaCercana <= rango) 
         {
+            
             objetivo = EnemegoMasCercano.transform;
         }
         else
@@ -70,6 +71,7 @@ public class torreta : MonoBehaviour
             ConteoDisparo = 1f/ VelocidadDisparo;
         }
         ConteoDisparo -= Time.deltaTime;
+
     }
 
     void Disparo()

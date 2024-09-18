@@ -9,6 +9,7 @@ public class Tienda : MonoBehaviour
     public BlueprintTorreta TorretaAmetralladora;
     public BlueprintTorreta TorretaFrancotirador;
     public BlueprintTorreta TorretaSoporte;
+    public BlueprintTorreta TorretaDefensa;
     Construccion construccion;
     void Start()
     {
@@ -33,6 +34,11 @@ public class Tienda : MonoBehaviour
     {
         Debug.Log("Compra de torreta Soporte");
         construccion.SeleccionarTorretaAConstruir(TorretaSoporte);
+    }
+    public void SeleccionarTorretaDefensa()
+    {
+        Debug.Log("Compra de torreta Defensa");
+        construccion.SeleccionarTorretaAConstruir(TorretaDefensa);
     }
     // Start is called before the first frame update
 

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject WinLevelUI;
     public MenuPausa menupausa;
     public string TagEnemigo = "Enemigo";
+    public string TagDefensa = "Defensa";
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +20,13 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         GameObject[] enemigos = GameObject.FindGameObjectsWithTag(TagEnemigo);
-        for (int i = 0; i < enemigos.Length; i++)
+        GameObject[] Defensas = GameObject.FindGameObjectsWithTag(TagDefensa);
+        /*for (int i = 0; i < enemigos.Length; i++)
         {
             Debug.Log(enemigos.Length);
             Debug.Log(enemigos[i]);
-        }
-        
+        }*/
+
         if (FinJuego)
         {
             return;

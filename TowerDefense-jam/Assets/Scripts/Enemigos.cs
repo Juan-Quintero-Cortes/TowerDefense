@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Enemigos : MonoBehaviour
 {
-    public float velocidad = 10f;
+    private float velocidad = 3.5f;
     public float vidaInicial = 100f;
     public float vida;
     public bool Detenido = false;
@@ -15,11 +15,14 @@ public class Enemigos : MonoBehaviour
     public int DineroGanado = 50;
     public Vector3 destinoFinal;
     public GameObject monedaPrefab; // Prefab de la moneda que aparecerá
+    private float rango = 3f;
 
-    
+
     private bool EstaMuerto = false;
     private NavMeshAgent agente;
     private float radioDestino = 0.5f;
+    public string TagDefensa = "Defensa";
+    public Transform TDefensa;
 
     void Start()
     {
@@ -27,6 +30,35 @@ public class Enemigos : MonoBehaviour
         vida = vidaInicial;
         agente.stoppingDistance = radioDestino;
         agente.SetDestination(destinoFinal);
+        InvokeRepeating("Defensas", 0f, 0.5f);
+    }
+
+    void Defensas()
+    {
+        GameObject[] Defensas = GameObject.FindGameObjectsWithTag(TagDefensa);
+        float DistaciaCercana = Mathf.Infinity;
+        GameObject DefensaMasCercana = null;
+
+        foreach (GameObject Defensa in Defensas)
+        {
+            float DistanciaAlEnemigo = Vector3.Distance(transform.position, Defensa.transform.position);
+            if (DistanciaAlEnemigo <= DistaciaCercana)
+            {
+                DistaciaCercana = DistanciaAlEnemigo;
+                DefensaMasCercana = Defensa;
+            }
+        }
+        if (DefensaMasCercana != null && DistaciaCercana <= rango)
+        {
+            Debug.Log("Defensa");
+            agente.speed = 0f;
+            TDefensa = DefensaMasCercana.transform;
+        }
+        else
+        {
+            agente.speed = velocidad;
+            TDefensa = null;
+        }
     }
 
     public void Daño(int cantidad)
@@ -110,9 +142,15 @@ public class Enemigos : MonoBehaviour
         }
     }
 
+
     void FinDelCamino()
     {
         StatsJugagor.Vidas -= daño;
         Destroy(gameObject);
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, rango);
     }
 }
